@@ -12,8 +12,21 @@ public class RoundMg {
         this.p2 = p2;
     }
 
-    public void insertUnit(Unit u){
-        battlefield.add(unitOfNum++, u);
+    public void insertUnit(Unit u, Player p){
+        int num = 2;
+        if(p.getPlayerNumber()==1)
+            num = 1;
+        if(u.getLocation()==1){
+            for(int i = 1; i<battlefield.size();i++)
+                if(p.getPlayerNumber()==battlefield.get(i).getPlayerNumber())
+                    battlefield.get(i).moveLocation(num);
+            battlefield.addFirst(u);
+        }
+        else{
+            for(int i = 1; i<battlefield.size();i++)
+                battlefield.get(i).moveLocation(num);
+            battlefield.addLast(u);
+        }
 
     }
     public void showBattlefield(){

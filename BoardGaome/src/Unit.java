@@ -1,4 +1,12 @@
 public class Unit {
+    public int getPlayerNumber() {
+        return playerNumber;
+    }
+
+    public void setPlayerNumber(int playerNumber) {
+        this.playerNumber = playerNumber;
+    }
+
     private int playerNumber;
     private int strikePower;
     private int hp;
@@ -65,5 +73,12 @@ public class Unit {
 
     public void setLocation(int location) {
         this.location = location;
+    }
+
+    public void moveLocation(int n){
+        if(n==1)
+            this.location++;
+        else
+            this.location--;
     }
 }

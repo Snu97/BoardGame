@@ -45,7 +45,10 @@ public class Main {
             System.out.print(" : ");
             switch (sel){
                 case 2 :
-                    rm.insertUnit(Sword.createSwordMan(1));
+                    if(p1.getMoney()>=Sword.swordManPrice()){
+                        rm.insertUnit(Sword.createSwordMan(1), p1);
+                        p1.setMoney(p1.getMoney()-Sword.swordManPrice());
+                    }
                     break;
                 case 3 :
                     p1.setHp(0);
@@ -61,11 +64,17 @@ public class Main {
             System.out.println("    1. 대기");
             System.out.println("    2. 병력 모집");
             System.out.println("    3. 항복");
-            System.out.print(" : ");
             sel = sc.nextInt();
+            System.out.print(" : ");
             switch (sel){
                 case 2 :
-                    rm.insertUnit(Sword.createSwordMan(2));
+                    if(p2.getMoney()>=Sword.swordManPrice()){
+                        rm.insertUnit(Sword.createSwordMan(2), p2);
+                        p2.setMoney(p2.getMoney()-Sword.swordManPrice());
+                    }
+                    else{
+                        System.out.println("[System] 보유금이 부족합니다.");
+                    }
                     break;
                 case 3 :
                     p2.setHp(0);
